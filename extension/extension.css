@@ -1,0 +1,20 @@
+/* Override web-app layout for the 450×580px extension popup */
+body {
+  width: 450px;
+  min-height: 580px;
+  max-height: 580px;
+  overflow: hidden;
+}
+
+.app-wrapper {
+  padding: 0;
+  min-height: 580px;
+  display: block;
+}
+
+.app-container {
+  padding: 14px;
+  max-width: 100%;
+  height: 580px;
+  overflow-y: auto;
+}

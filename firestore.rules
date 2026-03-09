@@ -1,0 +1,27 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // User profile — only the owner can read/write their own record
+    match /users/{userId} {
+      allow read, write: if request.auth != null
+                         && request.auth.uid == userId;
+    }
+
+    // Snippets — flat collection, related to users via the userId field
+    match /snippets/{snippetId} {
+      // Read / delete: must be the owner
+      allow read, delete: if request.auth != null
+                          && request.auth.uid == resource.data.userId;
+
+      // Create: userId in the new document must match the signed-in user
+      allow create: if request.auth != null
+                    && request.auth.uid == request.resource.data.userId;
+
+      // Update: must be the owner, and cannot change the userId field
+      allow update: if request.auth != null
+                    && request.auth.uid == resource.data.userId
+                    && request.resource.data.userId == resource.data.userId;
+    }
+  }
+}

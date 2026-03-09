@@ -1,0 +1,33 @@
+{
+  "name": "snippetdeck",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "build:ext": "vite build --config vite.config.ext.ts",
+    "gen:icons": "node scripts/generate-icons.mjs"
+  },
+  "dependencies": {
+    "firebase": "^11.9.0",
+    "lucide-react": "^0.577.0",
+    "next": "^15.4.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.316",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.1.4",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^15.5.12",
+    "sharp": "^0.34.5",
+    "typescript": "~5.9.3",
+    "vite": "^7.3.1"
+  }
+}
